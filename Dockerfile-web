@@ -1,3 +1,6 @@
 FROM nginx:latest
 
 COPY index.html /usr/share/nginx/html/index.html
+COPY stream.php /usr/share/nginx/html/stream.php
+
+EXPOSE 80

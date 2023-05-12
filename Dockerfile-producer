@@ -1,5 +1,12 @@
-FROM confluentinc/cp-kafka:6.2.0
+FROM bitnami/kafka:latest
 
-COPY producer.sh /app/producer.sh
+# Copia el archivo producer-app.js al contenedor
+COPY producer-app.js /app/producer-app.js
 
-CMD ["bash", "/app/producer.sh"]
+# Establece el directorio de trabajo
+WORKDIR /app
+
+# Instala las dependencias necesarias para ejecutar producer-app.js (si las hay)
+
+# Define el comando para ejecutar producer-app.js
+CMD ["node", "producer-app.js"]
