@@ -1,0 +1,5 @@
+FROM confluentinc/cp-kafka:6.2.0
+
+COPY producer.sh /app/producer.sh
+
+CMD ["bash", "/app/producer.sh"]

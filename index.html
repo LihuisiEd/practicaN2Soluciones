@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mensajes de Kafka</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h1>Mensajes de Kafka</h1>
+  <ul id="messages"></ul>
+
+  <script>
+    $(document).ready(function() {
+      var source = new EventSource("/stream");
+
+      source.onmessage = function(event) {
+        var message = event.data;
+        var listItem = $("<li></li>").text(message);
+        $("#messages").append(listItem);
+      };
+    });
+  </script>
+</body>
+</html>
